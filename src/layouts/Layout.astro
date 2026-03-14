@@ -1,0 +1,143 @@
+---
+export interface Props {
+    title: string;
+    description?: string;
+}
+
+const { 
+    title, 
+    description = "Professional portfolio of Ting-Wei Hu. View my experience, projects, and contact me." 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (Kept as CDN to preserve exact styling without config changes) -->
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
+    <script is:inline>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        beige: {
+                            light: '#f4ece6', // Background secondary
+                            dark: '#e6dace'   // Background primary
+                        },
+                        accent: '#0050ff',    // Primary action color
+                        ink: '#1a1a1a'        // Softer black for better reading contrast
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style is:global>
+        /* Custom Utilities to supplement Tailwind */
+        body { color: #1a1a1a; }
+        
+        /* Form input focus transitions */
+        .form-input {
+            transition: border-color 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #0050ff;
+        }
+
+        /* Active Nav Link Marker */
+        .nav-link.active {
+            color: #0050ff;
+            font-weight: 600;
+        }
+        
+        /* Custom subtle shadow for cards */
+        .card-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+    </style>
+</head>
+<body class="bg-beige-light antialiased font-sans selection:bg-accent selection:text-white">
+
+    <slot />
+
+    <!-- AOS JS -->
+    <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Client-side Interactions -->
+    <script is:inline>
+        // 1. Initialize Animations with consistent 1000ms duration
+        AOS.init({
+            once: true, // Animations only trigger once
+            offset: 50, // Trigger point
+            duration: 1000, // Global animation duration in ms
+        });
+
+        // 2. Dynamic Year in Footer
+        const yearEl = document.getElementById('year');
+        if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+        // 3. ScrollSpy Implementation using modern IntersectionObserver
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Observer Options: trigger when section is 50% visible
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    
+                    // Add active class to corresponding link
+                    const activeLink = document.querySelector(`.nav-link[href="#${activeId}"]`);
+                    if(activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // 4. Header Shadow on Scroll
+        const header = document.getElementById('navbar');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('shadow-md');
+                    header.classList.remove('shadow-sm');
+                } else {
+                    header.classList.remove('shadow-md');
+                    header.classList.add('shadow-sm');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
