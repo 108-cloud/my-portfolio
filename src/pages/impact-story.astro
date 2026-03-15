@@ -138,29 +138,70 @@ import homeCare from "../assets/images/home_care.jpg";
         </section>
 
         <!-- SECTION B: Transition - The Technical Bridge -->
-        <!-- Dev Note: Full bleed background to visually reset the user's mental context from Data -> Human -->
-        <section class="my-16 py-20 bg-[#1A202C] relative overflow-hidden">
-            <!-- Decorative background elements -->
-            <div
-                class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent to-transparent"
-            >
+        <section class="relative py-24 my-20 overflow-hidden bg-[#0F172A]">
+            <!-- 背景裝飾：增加一點科技感的流動感 -->
+            <div class="absolute top-0 left-0 w-full h-full">
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-accent/20 blur-[120px] rounded-full"
+                >
+                </div>
+                <div
+                    class="absolute inset-0 opacity-[0.03]"
+                    style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 40px 40px;"
+                >
+                </div>
             </div>
 
             <div
-                class="max-w-4xl mx-auto px-4 text-center relative z-10"
-                data-aos="zoom-in"
+                class="max-w-5xl mx-auto px-4 relative z-10 text-center"
+                data-aos="fade-up"
             >
-                <i
-                    class="fa-solid fa-quote-left text-4xl text-accent mb-6 opacity-50"
-                ></i>
+                <!-- 裝飾性引號：放大並置中，增加權威感 -->
+                <div class="flex justify-center mb-8">
+                    <div
+                        class="w-16 h-1 border-t-4 border-accent opacity-50 mb-2"
+                    >
+                    </div>
+                </div>
+
                 <h2
-                    class="text-3xl md:text-4xl font-extrabold text-white leading-tight"
+                    class="relative inline-block text-2xl md:text-4xl lg:text-5xl font-serif italic text-gray-100 leading-tight tracking-tight"
                 >
-                    "Data is only as powerful as the <br
-                        class="hidden md:block"
-                    />
-                    <span class="text-accent">clinical context</span> it serves."
+                    <!-- 左引號 -->
+                    <i
+                        class="fa-solid fa-quote-left absolute -top-8 -left-10 text-4xl text-accent/30 hidden md:block"
+                    ></i>
+
+                    "Data is only as <span
+                        class="text-white font-sans not-italic font-light"
+                        >powerful</span
+                    > as the
+                    <br class="hidden md:block" />
+                    <span
+                        class="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent font-extrabold not-italic uppercase tracking-wider text-4xl md:text-6xl"
+                    >
+                        clinical context
+                    </span>
+                    it serves."
+
+                    <!-- 右引號 -->
+                    <i
+                        class="fa-solid fa-quote-right absolute -bottom-8 -right-10 text-4xl text-accent/30 hidden md:block"
+                    ></i>
                 </h2>
+
+                <!-- 副標題/解釋：強化 CEO 視角的思維 -->
+                <div
+                    class="mt-10 flex items-center justify-center gap-4 text-gray-400"
+                >
+                    <span class="h-[1px] w-12 bg-gray-700"></span>
+                    <p
+                        class="text-sm md:text-base font-medium tracking-widest uppercase"
+                    >
+                        Bridging Bioinformatics & Patient Care
+                    </p>
+                    <span class="h-[1px] w-12 bg-gray-700"></span>
+                </div>
             </div>
         </section>
 
@@ -184,7 +225,7 @@ import homeCare from "../assets/images/home_care.jpg";
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Item 1: Hospital Internship -->
                 <article
-                    class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group"
+                    class="bg-white rounded-2xl overflow-hidden flex flex-col group"
                     data-aos="fade-up"
                     data-aos-delay="100"
                 >
@@ -197,7 +238,7 @@ import homeCare from "../assets/images/home_care.jpg";
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                            class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-300"
                         >
                         </div>
                     </div>
@@ -224,7 +265,7 @@ import homeCare from "../assets/images/home_care.jpg";
 
                 <!-- Item 2: Tzu Chi Volunteer Work -->
                 <article
-                    class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group"
+                    class="bg-white rounded-2xl overflow-hidden flex flex-col group"
                     data-aos="fade-up"
                     data-aos-delay="200"
                 >
@@ -237,7 +278,7 @@ import homeCare from "../assets/images/home_care.jpg";
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                            class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                         >
                         </div>
                     </div>
@@ -245,7 +286,7 @@ import homeCare from "../assets/images/home_care.jpg";
                         <div
                             class="flex items-center gap-2 text-accent font-semibold mb-3"
                         >
-                            <i class="fa-solid fa-hands-holding-heart"></i>
+                            <i class="fa-solid fa-handshake-angle"></i>
                             <span>Empathy</span>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-3">
