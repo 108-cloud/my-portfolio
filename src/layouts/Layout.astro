@@ -39,12 +39,87 @@ const {
 
     <script>
         import { initAOS } from '../assets/scripts/aos-init.js';
-        import { initScrollSpy, initHeaderShadow } from '../assets/scripts/scrollspy.js';
 
-        // Initialize all client-side logic
-        initAOS();
-        initScrollSpy();
-        initHeaderShadow();
+        /**
+         * Enhanced ScrollSpy with fixed header support and better accuracy
+         */
+        function initScrollSpy() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const header = document.getElementById('navbar');
+            
+            // 2. Account for fixed header height (approx 80px)
+            const headerHeight = header ? header.offsetHeight : 80;
+
+            // 1. More forgiving options (Trigger when section hits the upper part of the viewport)
+            const observerOptions = {
+                root: null,
+                rootMargin: `-${headerHeight + 20}px 0px -60% 0px`,
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Only trigger when the section enters the viewport zone
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${activeId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+
+            // 3. Ensure 'About' is active at the very top of the page
+            const handleTopActive = () => {
+                if (window.scrollY < 100) {
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === '#about') {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            };
+            
+            window.addEventListener('scroll', handleTopActive);
+            handleTopActive(); // Initial check
+        }
+
+        /**
+         * Toggles header shadow based on scroll position
+         */
+        function initHeaderShadow() {
+            const header = document.getElementById('navbar');
+            if (!header) return;
+
+            const toggleShadow = () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('shadow-md');
+                    header.classList.remove('shadow-sm');
+                } else {
+                    header.classList.remove('shadow-md');
+                    header.classList.add('shadow-sm');
+                }
+            };
+
+            window.addEventListener('scroll', toggleShadow, { passive: true });
+            toggleShadow();
+        }
+
+        // 4. Ensure script runs when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initAOS();
+            initScrollSpy();
+            initHeaderShadow();
+        });
     </script>
 </body>
 </html>
