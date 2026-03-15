@@ -1,39 +1,217 @@
----
----
 <!-- PROJECTS SECTION -->
 <section id="projects" class="py-24 bg-beige-light min-h-screen">
     <div class="max-w-5xl mx-auto px-6 lg:px-12">
-        
         <!-- Section Header -->
         <div class="flex items-center justify-center mb-8" data-aos="fade-up">
             <div class="w-5 h-5 bg-accent mr-4"></div>
-            <h2 class="text-4xl font-bold">Projects</h2>
+            <h2 class="text-4xl font-bold">Featured Projects</h2>
         </div>
 
-        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-            A selection of recent work showcasing my technical approach, architectural decision-making, and focus on delivering business value through clean code.
+        <p
+            class="text-center text-gray-600 max-w-2xl mx-auto mb-16"
+            data-aos="fade-up"
+            data-aos-delay="100"
+        >
+            Bridging the gap between Wet-lab precision and Dry-lab analytics.
+            Focused on translating high-throughput sequencing data into
+            actionable clinical insights for precision oncology.
         </p>
 
-        <!-- Project Card -->
-        <article class="bg-white flex flex-col md:flex-row card-shadow overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
-            
+        <!-- Project 1: Master's Thesis (Circular Heatmap) -->
+        <article
+            class="bg-white flex flex-col md:flex-row card-shadow overflow-hidden group mb-12"
+            data-aos="fade-up"
+            data-aos-delay="200"
+        >
             <!-- Text Area -->
-            <div class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center border-l-8 border-transparent group-hover:border-accent transition-colors duration-300">
-                <h3 class="text-accent font-bold text-2xl mb-1">Enterprise Analytics Dashboard</h3>
-                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-6">Lead Frontend Developer</p>
-                <p class="text-gray-600 leading-relaxed">
-                    Engineered a high-performance data visualization dashboard rendering 10k+ data points in real-time. Built with TypeScript, React, and D3.js. Optimized rendering cycles to maintain a strict 60FPS, resulting in a 35% increase in client engagement time.
+            <div
+                class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center border-l-8 border-transparent group-hover:border-accent transition-colors duration-300"
+            >
+                <h3 class="text-accent font-bold text-2xl mb-1">
+                    Early-Stage NSCLC Multi-Omics Analysis
+                </h3>
+                <p
+                    class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-6"
+                >
+                    Principal Investigator | NTU
                 </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Engineered a comprehensive analytical pipeline for 40
+                    clinical scATAC-seq samples. Designed circular heatmaps to
+                    visualize distinctly downregulated invasive gene clusters in
+                    patients with a family history of lung cancer, establishing
+                    a significant survival correlation (p=0.034).
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-xs font-bold text-gray-600 rounded"
+                        >scATAC-seq</span
+                    >
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-xs font-bold text-gray-600 rounded"
+                        >Oncogenic Profiling</span
+                    >
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-xs font-bold text-gray-600 rounded"
+                        >R/Python</span
+                    >
+                </div>
+                <p class="text-sm text-accent italic">
+                    Awarded 2025 TJCC Oral Presentation Runner-up (Translational
+                    Medicine).
+                </p>
+
+                <!-- Added to Project 1: NSCLC Project -->
+                <div class="mt-6">
+                    <a
+                        href="/impact-story#academic-research"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-lg shadow-md hover:bg-opacity-90 hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                        View Full Case Study
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
             </div>
 
             <!-- Image Area -->
-            <div class="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Data Dashboard Preview" 
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                     loading="lazy">
+            <div
+                class="md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-white border-l border-gray-100"
+            >
+                <!-- Using object-contain to prevent cropping of scientific labels and legends -->
+                <img
+                    src="src/assets/images/circle_ht_map.png"
+                    alt="Circular Heatmap of Downregulated Invasive Genes"
+                    class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                />
             </div>
         </article>
 
+        <!-- Project 2: Bio-Data Visualization (CellChat Chord Diagram) -->
+        <article
+            class="bg-white flex flex-col md:flex-row-reverse card-shadow overflow-hidden group mb-12"
+            data-aos="fade-up"
+            data-aos-delay="300"
+        >
+            <!-- Text Area -->
+            <div
+                class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center border-r-8 border-transparent group-hover:border-accent transition-colors duration-300"
+            >
+                <h3 class="text-accent font-bold text-2xl mb-1">
+                    Clinical Bio-Insight Dashboard
+                </h3>
+                <p
+                    class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-6"
+                >
+                    Bioinformatics Lead
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Mapped tumor microenvironment (TME) interactions by
+                    integrating Metacore pathway analyses with proprietary
+                    cohorts. Leveraged CellChat to construct chord diagrams
+                    illustrating differential cell-cell communication,
+                    specifically highlighting downregulated ECM-integrin
+                    signaling networks in family-history cohorts.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-xs font-bold text-gray-600 rounded"
+                        >CellChat</span
+                    >
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-xs font-bold text-gray-600 rounded"
+                        >TME Interaction</span
+                    >
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-xs font-bold text-gray-600 rounded"
+                        >Data Visualization</span
+                    >
+                </div>
+            </div>
+
+            <!-- Image Area -->
+            <div
+                class="md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-white border-r border-gray-100"
+            >
+                <!-- Using object-contain to prevent cropping of scientific labels and legends -->
+                <img
+                    src="src/assets/images/cellchat_chord_ECM.png"
+                    alt="CellChat Chord Diagram of ECM-integrin signaling"
+                    class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                />
+            </div>
+        </article>
+
+        <!-- Project 3: Clinical Lab Operations & Quality Management -->
+        <article
+            class="bg-white flex flex-col md:flex-row card-shadow overflow-hidden group"
+            data-aos="fade-up"
+            data-aos-delay="400"
+        >
+            <!-- Text Area -->
+            <div
+                class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center border-l-8 border-transparent group-hover:border-accent transition-colors duration-300"
+            >
+                <h3 class="text-accent font-bold text-2xl mb-1">
+                    Clinical Lab Operations & QM
+                </h3>
+                <p
+                    class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-6"
+                >
+                    Medical Technologist (Certified)
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Gained hands-on experience with hospital diagnostic
+                    workflows at Hualien Tzu Chi Hospital, focusing on
+                    cross-department operations, HIS integration, and rigorous
+                    QA/QC. Developed strong understanding of laboratory
+                    management under CAP/CLIA standards to ensure precise,
+                    traceable clinical data.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-xs font-bold text-gray-600 rounded"
+                        >Hospital Ops</span
+                    >
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-xs font-bold text-gray-600 rounded"
+                        >QA/QC Management</span
+                    >
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-xs font-bold text-gray-600 rounded"
+                        >CAP/CLIA Standards</span
+                    >
+                </div>
+
+                <!-- Added to Project 3: Clinical/Volunteer Experience -->
+                <div class="mt-6">
+                    <a
+                        href="/impact-story#clinical-humanistic"
+                        class="inline-flex items-center gap-2 px-6 py-3 border-2 border-accent text-accent font-semibold rounded-lg shadow-sm hover:bg-accent hover:text-white transition-all duration-300"
+                    >
+                        View Clinical & Volunteer Experience
+                        <i class="fa-solid fa-stethoscope text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image Area -->
+            <div
+                class="md:w-1/2 h-80 md:h-auto relative overflow-hidden bg-gray-200"
+            >
+                <img
+                    src="src/assets/images/MT_intern.jpg"
+                    alt="Ting-Wei Hu - Clinical Laboratory Internship"
+                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                />
+                <!-- Subtle Overlay -->
+                <div
+                    class="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-300"
+                >
+                </div>
+            </div>
+        </article>
     </div>
 </section>

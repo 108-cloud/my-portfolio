@@ -1,63 +1,130 @@
 ---
+
 ---
+
 <!-- CONTACT SECTION -->
-<section id="contact" class="py-24 bg-beige-dark min-h-[80vh] flex flex-col justify-center">
+<section
+    id="contact"
+    class="py-24 bg-beige-dark min-h-[80vh] flex flex-col justify-center"
+>
     <div class="max-w-3xl mx-auto w-full px-6 lg:px-12">
-        
         <!-- Section Header -->
-        <div class="flex items-center justify-center mb-16" data-aos="fade-up">
-            <div class="w-5 h-5 bg-accent mr-4"></div>
-            <h2 class="text-4xl font-bold">Let's talk</h2>
+        <div
+            class="flex flex-col items-center justify-center mb-16"
+            data-aos="fade-up"
+        >
+            <div class="flex items-center mb-4">
+                <div class="w-5 h-5 bg-accent mr-4"></div>
+                <h2 class="text-4xl font-bold">Let's talk</h2>
+            </div>
+            <!-- Added direct email for executive accessibility -->
+            <p class="text-ink/80 font-medium">
+                Direct inquiry: <a
+                    href="mailto:tim4451940@gmail.com"
+                    class="text-accent hover:underline transition-all"
+                    >tim4451940@gmail.com</a
+                >
+            </p>
         </div>
 
         <!-- Form Card -->
-        <article class="bg-white p-8 md:p-16 card-shadow" data-aos="fade-up" data-aos-delay="100">
-            <form action="#" method="POST" class="space-y-8">
-                
+        <article
+            class="bg-white p-8 md:p-16 card-shadow"
+            data-aos="fade-up"
+            data-aos-delay="100"
+        >
+            <!-- 
+                Note: Replace '#' with your form service endpoint (e.g., https://formspree.io/f/tim4451940@gmail.com) 
+                to make the form functional.
+            -->
+            <form
+                action="https://formspree.io/f/tim4451940@gmail.com"
+                method="POST"
+                class="space-y-8"
+            >
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- First Name -->
                     <div class="flex flex-col relative group">
-                        <label for="firstName" class="text-sm font-bold text-ink mb-2">First Name *</label>
-                        <input type="text" id="firstName" name="firstName" required 
-                               class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full">
+                        <label
+                            for="firstName"
+                            class="text-sm font-bold text-ink mb-2"
+                            >First Name *</label
+                        >
+                        <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            required
+                            class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full focus:border-accent transition-colors"
+                        />
                     </div>
-                    
+
                     <!-- Last Name -->
                     <div class="flex flex-col relative group">
-                        <label for="lastName" class="text-sm font-bold text-ink mb-2">Last Name *</label>
-                        <input type="text" id="lastName" name="lastName" required 
-                               class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full">
+                        <label
+                            for="lastName"
+                            class="text-sm font-bold text-ink mb-2"
+                            >Last Name *</label
+                        >
+                        <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            required
+                            class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full focus:border-accent transition-colors"
+                        />
                     </div>
                 </div>
 
                 <!-- Email -->
                 <div class="flex flex-col relative group">
-                    <label for="email" class="text-sm font-bold text-ink mb-2">Email *</label>
-                    <input type="email" id="email" name="email" required 
-                           class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full">
+                    <label for="email" class="text-sm font-bold text-ink mb-2"
+                        >Email *</label
+                    >
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full focus:border-accent transition-colors"
+                    />
                 </div>
 
                 <!-- Subject -->
                 <div class="flex flex-col relative group">
-                    <label for="subject" class="text-sm font-bold text-ink mb-2">Subject</label>
-                    <input type="text" id="subject" name="subject" 
-                           class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full">
+                    <label for="subject" class="text-sm font-bold text-ink mb-2"
+                        >Subject</label
+                    >
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full focus:border-accent transition-colors"
+                    />
                 </div>
 
                 <!-- Message -->
                 <div class="flex flex-col relative group">
-                    <label for="message" class="text-sm font-bold text-ink mb-2">Message</label>
-                    <textarea id="message" name="message" rows="3" 
-                              class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full resize-none"></textarea>
+                    <label for="message" class="text-sm font-bold text-ink mb-2"
+                        >Message</label
+                    >
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="3"
+                        class="form-input border-b-2 border-gray-300 bg-transparent py-2 outline-none w-full resize-none focus:border-accent transition-colors"
+                    ></textarea>
                 </div>
 
                 <div class="pt-4">
-                    <button type="submit" class="bg-accent text-white px-10 py-3 rounded-full font-medium hover:bg-blue-700 hover:shadow-lg transition-all w-full md:w-auto">
-                        Send
+                    <button
+                        type="submit"
+                        class="bg-accent text-white px-10 py-3 rounded-full font-medium hover:bg-blue-700 hover:shadow-lg transition-all w-full md:w-auto"
+                    >
+                        Send Message
                     </button>
                 </div>
             </form>
         </article>
-
     </div>
 </section>

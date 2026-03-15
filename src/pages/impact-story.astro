@@ -1,0 +1,302 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+// Asset Imports
+// Ensure these paths match your actual directory structure relative to this file
+import tjccPoster from "../assets/images/TJCC_poster.png";
+import mtIntern from "../assets/images/MT_intern_group.jpg";
+import homeCare from "../assets/images/home_care.jpg";
+---
+
+<Layout
+    title="The Integrated Impact Story | Ting-Wei Hu"
+    description="Translating multi-omics into clinical insights and ground-level patient care."
+>
+    <main class="pt-24 pb-16">
+        <!-- Navigation Link -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <a
+                href="/#projects"
+                class="group inline-flex items-center text-accent font-semibold hover:text-gray-900 transition-colors"
+            >
+                <i
+                    class="fa-solid fa-arrow-left mr-2 transform group-hover:-translate-x-1 transition-transform"
+                ></i>
+                Back to Projects
+            </a>
+        </div>
+
+        <!-- SECTION A: Hero & Academic Excellence -->
+        <section
+            id="academic-research"
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+            data-aos="fade-up"
+        >
+            <div class="mb-12">
+                <!-- Award Badge -->
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 bg-accent/10 border border-accent/20 rounded-full text-accent font-semibold text-sm"
+                >
+                    <i class="fa-solid fa-award"></i>
+                    2025 TJCC Oral Presentation Runner-up
+                </div>
+
+                <h1
+                    class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight"
+                >
+                    Translating Multi-Omics into <br class="hidden md:block" />
+                    <span class="text-accent">Clinical Insights:</span> The NSCLC
+                    Project
+                </h1>
+            </div>
+
+            <!-- Desktop 60/40 Split -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+                <!-- Left: 60% Vertical Poster Container -->
+                <!-- Dev Note: Uses max-height and overflow-y-auto to create a scrollable "lightbox" feel inline -->
+                <div
+                    class="lg:col-span-3 bg-white p-2 rounded-2xl shadow-xl border border-gray-100 relative group"
+                >
+                    <div
+                        class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded text-xs font-semibold z-10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                    >
+                        Scroll to view poster
+                    </div>
+                    <div
+                        class="max-h-[75vh] overflow-y-auto rounded-xl custom-scrollbar bg-gray-50"
+                    >
+                        <Image
+                            src={tjccPoster}
+                            alt="2025 TJCC Oral Presentation Poster on NSCLC"
+                            class="w-full h-auto object-contain"
+                            quality="high"
+                        />
+                    </div>
+                </div>
+
+                <!-- Right: 40% Clinical Context & Methodology -->
+                <div class="lg:col-span-2 space-y-8 text-gray-700">
+                    <div data-aos="fade-left" data-aos-delay="100">
+                        <h2
+                            class="text-2xl font-bold text-gray-900 border-b-2 border-accent/20 pb-2 mb-4"
+                        >
+                            <i class="fa-solid fa-microscope text-accent mr-2"
+                            ></i> The Challenge
+                        </h2>
+                        <p class="leading-relaxed">
+                            Non-Small Cell Lung Cancer (NSCLC) presents extreme
+                            molecular heterogeneity. The clinical gap lies not
+                            in generating multi-omics data, but in synthesizing
+                            it to identify <strong>actionable biomarkers</strong
+                            >. Current stratifications often fail to capture the
+                            nuanced pathway dysregulations that drive
+                            therapeutic resistance.
+                        </p>
+                    </div>
+
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <h2
+                            class="text-2xl font-bold text-gray-900 border-b-2 border-accent/20 pb-2 mb-4"
+                        >
+                            <i
+                                class="fa-solid fa-network-wired text-accent mr-2"
+                            ></i> My Methodology
+                        </h2>
+                        <p class="leading-relaxed">
+                            I integrated genomic and transcriptomic datasets
+                            using advanced bioinformatics pipelines. By applying
+                            rigorous statistical modeling and pathway enrichment
+                            analysis, I isolated specific molecular signatures
+                            that correlate with distinct phenotypic outcomes in
+                            the NSCLC tumor microenvironment.
+                        </p>
+                    </div>
+
+                    <div
+                        data-aos="fade-left"
+                        data-aos-delay="300"
+                        class="bg-white p-6 rounded-xl shadow-md border-l-4 border-accent"
+                    >
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">
+                            <i class="fa-solid fa-heart-pulse text-accent mr-2"
+                            ></i> Clinical Impact
+                        </h2>
+                        <p class="leading-relaxed text-sm">
+                            This research directly bridges the bench-to-bedside
+                            gap. By proposing novel molecular targets, these
+                            findings provide a foundational framework for
+                            guiding <strong
+                                >precision oncology strategies</strong
+                            >, improving diagnostic stratification, and
+                            ultimately enhancing therapeutic efficacy for NSCLC
+                            patients.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION B: Transition - The Technical Bridge -->
+        <!-- Dev Note: Full bleed background to visually reset the user's mental context from Data -> Human -->
+        <section class="my-16 py-20 bg-[#1A202C] relative overflow-hidden">
+            <!-- Decorative background elements -->
+            <div
+                class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent to-transparent"
+            >
+            </div>
+
+            <div
+                class="max-w-4xl mx-auto px-4 text-center relative z-10"
+                data-aos="zoom-in"
+            >
+                <i
+                    class="fa-solid fa-quote-left text-4xl text-accent mb-6 opacity-50"
+                ></i>
+                <h2
+                    class="text-3xl md:text-4xl font-extrabold text-white leading-tight"
+                >
+                    "Data is only as powerful as the <br
+                        class="hidden md:block"
+                    />
+                    <span class="text-accent">clinical context</span> it serves."
+                </h2>
+            </div>
+        </section>
+
+        <!-- SECTION C: Clinical & Humanistic Gallery -->
+        <section
+            id="clinical-humanistic"
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+        >
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Ground-Level Experience: From Lab Bench to Patient Care
+                </h2>
+                <p class="max-w-2xl mx-auto text-gray-600 text-lg">
+                    Understanding the operational rigor of the clinical lab and
+                    the lived reality of patients ensures my research remains
+                    grounded in real-world healthcare needs.
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Item 1: Hospital Internship -->
+                <article
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
+                    <div
+                        class="relative h-72 md:h-80 overflow-hidden bg-gray-200"
+                    >
+                        <Image
+                            src={mtIntern}
+                            alt="Medical Technology Internship Group at Hualien Tzu Chi Hospital"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow">
+                        <div
+                            class="flex items-center gap-2 text-accent font-semibold mb-3"
+                        >
+                            <i class="fa-solid fa-vials"></i>
+                            <span>Professionalism</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            Clinical Laboratory Operations
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Mastering QA/QC and CAP/CLIA standards at Hualien
+                            Tzu Chi Hospital. This experience cemented my
+                            understanding of diagnostic workflows, ensuring that
+                            any translational biomarker discovered at the bench
+                            meets the rigorous operational standards required
+                            for actual clinical deployment.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Item 2: Tzu Chi Volunteer Work -->
+                <article
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
+                    <div
+                        class="relative h-72 md:h-80 overflow-hidden bg-gray-200"
+                    >
+                        <Image
+                            src={homeCare}
+                            alt="Engaging in home care patient visits as a Tzu Chi Volunteer"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow">
+                        <div
+                            class="flex items-center gap-2 text-accent font-semibold mb-3"
+                        >
+                            <i class="fa-solid fa-hands-holding-heart"></i>
+                            <span>Empathy</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            Human-Centered Outreach
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Participating in home visits to understand the
+                            real-world needs of individuals who require support
+                            or companionship. Engaging directly with them and
+                            their families grounds my curiosity and compassion,
+                            constantly reminding me that behind every effort to
+                            help is a human life deserving care and connection.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- Add this Footer CTA -->
+        <section
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-gray-100"
+        >
+            <div class="flex flex-col items-center text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                    Return to Professional Overview
+                </h3>
+                <a
+                    href="/#projects"
+                    class="inline-flex items-center px-8 py-3 bg-accent text-white font-bold rounded-full shadow-lg hover:bg-accent/90 hover:shadow-xl transition-all active:scale-95"
+                >
+                    <i class="fa-solid fa-layer-group mr-2"></i>
+                    Back to Projects
+                </a>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    /* Custom scrollbar for the poster container to make it look sleek */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+</style>
