@@ -1,5 +1,5 @@
 ---
-
+// Any frontmatter logic goes here
 ---
 
 <!-- STICKY HEADER -->
@@ -8,10 +8,10 @@
     id="navbar"
 >
     <div
-        class="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex justify-between items-center"
+        class="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex justify-between items-center relative"
     >
         <!-- Logo / Brand -->
-        <a href="#about" class="flex items-center gap-3 group">
+        <a href="#about" class="flex items-center gap-3 group z-50">
             <div
                 class="w-4 h-4 bg-accent group-hover:scale-110 transition-transform"
             >
@@ -24,9 +24,10 @@
             </h1>
         </a>
 
-        <!-- Desktop Navigation -->
+        <!-- Navigation Links (Responsive Desktop & Mobile) -->
         <nav
-            class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-gray-600"
+            id="nav-menu"
+            class="hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-md flex-col items-center py-6 gap-6 md:static md:flex md:flex-row md:border-none md:shadow-none md:w-auto md:p-0 md:gap-8 text-sm font-medium tracking-wide text-gray-600 z-40 transition-all duration-300"
         >
             <a
                 href="#about"
@@ -48,8 +49,57 @@
         </nav>
 
         <!-- Mobile Menu Button -->
-        <button class="md:hidden text-ink text-2xl" aria-label="Menu">
-            <i class="fa-solid fa-bars"></i>
+        <button
+            id="mobile-menu-btn"
+            class="md:hidden text-ink text-2xl p-2 z-50 focus:outline-none"
+            aria-label="Menu"
+        >
+            <i class="fa-solid fa-bars transition-transform duration-300"></i>
         </button>
     </div>
 </header>
+
+<script>
+    function initMobileMenu() {
+        const menuBtn = document.getElementById("mobile-menu-btn");
+        const navMenu = document.getElementById("nav-menu");
+        const menuIcon = menuBtn?.querySelector("i");
+        const navLinks = navMenu?.querySelectorAll(".nav-link");
+
+        if (!menuBtn || !navMenu) return;
+
+        // 1. Toggle Menu Visibility
+        menuBtn.addEventListener("click", () => {
+            // Toggle between 'hidden' and 'flex'
+            navMenu.classList.toggle("hidden");
+            navMenu.classList.toggle("flex");
+
+            // Swap hamburger to "X" close icon
+            if (menuIcon) {
+                menuIcon.classList.toggle("fa-bars");
+                // Note: If you are using FontAwesome 5, use 'fa-times' instead of 'fa-xmark'
+                menuIcon.classList.toggle("fa-xmark");
+            }
+        });
+
+        // 2. Auto-close menu when a link is clicked
+        navLinks?.forEach((link) => {
+            link.addEventListener("click", () => {
+                // Ensure this only triggers on mobile screens
+                if (window.innerWidth < 768) {
+                    navMenu.classList.add("hidden");
+                    navMenu.classList.remove("flex");
+                    menuIcon?.classList.add("fa-bars");
+                    menuIcon?.classList.remove("fa-xmark");
+                }
+            });
+        });
+    }
+
+    // Initialize the script on standard page load
+    initMobileMenu();
+
+    // Astro Best Practice: Re-initialize the script after Single Page Application (SPA) navigation
+    // This ensures your menu doesn't break if you use Astro's <ViewTransitions /> router
+    document.addEventListener("astro:after-swap", initMobileMenu);
+</script>
