@@ -1,3 +1,13 @@
+---
+import { Image } from 'astro:assets';
+import tjccInitial from '../assets/images/TJCC_initial.jpg';
+import tjccFinal from '../assets/images/TJCC_final.jpg';
+import tjccAward from '../assets/images/TJCC_award.jpg';
+import circleHtMap from '../assets/images/circle_ht_map.png';
+import cellchatChord from '../assets/images/cellchat_chord_ECM.png';
+import mtIntern from '../assets/images/MT_intern.jpg';
+---
+
 <!-- PROJECTS SECTION -->
 <section id="projects" class="py-24 bg-beige-light min-h-screen">
     <div class="max-w-5xl mx-auto px-6 lg:px-12">
@@ -87,11 +97,10 @@
                     <div
                         class="w-full h-full shrink-0 relative overflow-hidden"
                     >
-                        <img
-                            src="src/assets/images/TJCC_initial.jpg"
+                        <Image
+                            src={tjccInitial}
                             alt="Ting-Wei Hu engaging with Oncology KOLs at TJCC"
                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                            loading="lazy"
                         />
                         <div
                             class="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-300 pointer-events-none"
@@ -103,11 +112,10 @@
                     <div
                         class="w-full h-full shrink-0 relative overflow-hidden"
                     >
-                        <img
-                            src="src/assets/images/TJCC_final.jpg"
+                        <Image
+                            src={tjccFinal}
                             alt="Ting-Wei Hu presenting final scientific insights"
                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                            loading="lazy"
                         />
                         <div
                             class="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-300 pointer-events-none"
@@ -119,11 +127,10 @@
                     <div
                         class="w-full h-full shrink-0 relative overflow-hidden"
                     >
-                        <img
-                            src="src/assets/images/TJCC_award.jpg"
+                        <Image
+                            src={tjccAward}
                             alt="Award for 2025 TJCC Oral Presentation Runner-up"
                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                            loading="lazy"
                         />
                         <div
                             class="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-300 pointer-events-none"
@@ -229,11 +236,10 @@
                 class="md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-white border-l border-gray-100"
             >
                 <!-- Using object-contain to prevent cropping of scientific labels and legends -->
-                <img
-                    src="src/assets/images/circle_ht_map.png"
+                <Image
+                    src={circleHtMap}
                     alt="Circular Heatmap of Downregulated Invasive Genes"
                     class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
                 />
             </div>
         </article>
@@ -285,11 +291,10 @@
                 class="md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-white border-r border-gray-100"
             >
                 <!-- Using object-contain to prevent cropping of scientific labels and legends -->
-                <img
-                    src="src/assets/images/cellchat_chord_ECM.png"
+                <Image
+                    src={cellchatChord}
                     alt="CellChat Chord Diagram of ECM-integrin signaling"
                     class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
                 />
             </div>
         </article>
@@ -351,11 +356,10 @@
             <div
                 class="md:w-1/2 h-80 md:h-auto relative overflow-hidden bg-gray-200"
             >
-                <img
-                    src="src/assets/images/MT_intern.jpg"
+                <Image
+                    src={mtIntern}
                     alt="Ting-Wei Hu - Clinical Laboratory Internship"
                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
                 />
                 <!-- Subtle Overlay -->
                 <div
