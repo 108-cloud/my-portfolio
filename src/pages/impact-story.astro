@@ -7,6 +7,8 @@ import { Image } from "astro:assets";
 import tjccPoster from "../assets/images/TJCC_poster.png";
 import mtIntern from "../assets/images/MT_intern_group.jpg";
 import homeCare from "../assets/images/home_care.jpg";
+import veteranHost from "../assets/images/veteran_host.jpg";
+import veteranRollcall from "../assets/images/veteran_rollcall.jpg";
 ---
 
 <Layout
@@ -254,35 +256,121 @@ import homeCare from "../assets/images/home_care.jpg";
                             Clinical Laboratory Operations
                         </h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Mastering QA/QC and CAP/CLIA standards at Hualien
-                            Tzu Chi Hospital. This experience cemented my
-                            understanding of diagnostic workflows, ensuring that
-                            any translational biomarker discovered at the bench
-                            meets the rigorous operational standards required
-                            for actual clinical deployment.
+                            During my internship at <strong
+                                >Hualien Tzu Chi Hospital’s clinical laboratory</strong
+                            >, I trained in diagnostic workflows within rigorous <strong
+                                >QA/QC systems</strong
+                            > aligned with <strong
+                                >CAP and CLIA standards</strong
+                            >. The experience showed me how laboratory science
+                            becomes reliable clinical results.
+                        </p>
+
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            Working alongside <strong
+                                >medical technologists</strong
+                            > revealed the quiet intensity of the lab. While patients
+                            rarely meet the professionals behind their reports, the
+                            work never slows—from shortening turnaround time to 
+                            managing large school health screenings.
+                        </p>
+
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            Though I will pursue a career in biotechnology, this
+                            experience stays with me. Behind every laboratory
+                            result is a team quietly safeguarding patients’
+                            health.
                         </p>
                     </div>
                 </article>
 
-                <!-- Item 2: Tzu Chi Volunteer Work -->
+                <!-- Item 2: Tzu Chi Volunteer Work (Carousel) -->
                 <article
-                    class="bg-white rounded-2xl overflow-hidden flex flex-col group"
+                    class="bg-white rounded-2xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-shadow duration-300"
                     data-aos="fade-up"
                     data-aos-delay="200"
                 >
+                    <!-- Carousel Container (加入觸控相關 class 與自定義 group: group/carousel) -->
                     <div
-                        class="relative h-72 md:h-80 overflow-hidden bg-gray-200"
+                        id="volunteer-carousel"
+                        class="relative h-72 md:h-80 overflow-hidden bg-gray-200 group/carousel touch-pan-y select-none cursor-grab active:cursor-grabbing"
                     >
-                        <Image
-                            src={homeCare}
-                            alt="Engaging in home care patient visits as a Tzu Chi Volunteer"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
+                        <!-- Carousel Track -->
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                            id="volunteer-track"
+                            class="flex w-full h-full transition-transform duration-500 ease-out"
                         >
+                            <!-- Slide 1 -->
+                            <div class="w-full h-full flex-shrink-0 relative">
+                                <Image
+                                    src={homeCare}
+                                    alt="Engaging in home care patient visits as a Tzu Chi Volunteer"
+                                    class="w-full h-full object-cover pointer-events-none"
+                                    draggable="false"
+                                />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none"
+                                >
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="w-full h-full flex-shrink-0 relative">
+                                <Image
+                                    src={veteranHost}
+                                    alt="Hosting events for veterans"
+                                    class="w-full h-full object-cover pointer-events-none"
+                                    draggable="false"
+                                />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none"
+                                >
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="w-full h-full flex-shrink-0 relative">
+                                <Image
+                                    src={veteranRollcall}
+                                    alt="Veteran rollcall event"
+                                    class="w-full h-full object-cover pointer-events-none"
+                                    draggable="false"
+                                />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none"
+                                >
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 左右箭頭 (電腦版懸停顯示) -->
+                        <button
+                            class="volunteer-prev absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/40 hover:bg-black/60 text-white rounded-full hidden md:flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-all z-10"
+                            aria-label="Previous image"
+                        >
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button
+                            class="volunteer-next absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/40 hover:bg-black/60 text-white rounded-full hidden md:flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-all z-10"
+                            aria-label="Next image"
+                        >
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                        <!-- 底部指示點 (手機恆亮，電腦懸停顯示) -->
+                        <div
+                            class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 opacity-100 md:opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+                        >
+                            <button
+                                class="volunteer-indicator w-2 h-2 rounded-full bg-cyan-400 transition-colors"
+                            ></button>
+                            <button
+                                class="volunteer-indicator w-2 h-2 rounded-full bg-white/50 transition-colors"
+                            ></button>
+                            <button
+                                class="volunteer-indicator w-2 h-2 rounded-full bg-white/50 transition-colors"
+                            ></button>
                         </div>
                     </div>
+
                     <div class="p-8 flex-grow">
                         <div
                             class="flex items-center gap-2 text-accent font-semibold mb-3"
@@ -294,12 +382,30 @@ import homeCare from "../assets/images/home_care.jpg";
                             Human-Centered Outreach
                         </h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Participating in home visits to understand the
-                            real-world needs of individuals who require support
-                            or companionship. Engaging directly with them and
-                            their families grounds my curiosity and compassion,
-                            constantly reminding me that behind every effort to
-                            help is a human life deserving care and connection.
+                            Through <strong>volunteer home visits</strong>, I
+                            spend time with elderly individuals living alone and
+                            families facing difficult circumstances. Sitting
+                            together, listening to their stories, and simply
+                            being present offers meaningful companionship.
+                        </p>
+
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            I also visit veterans at <strong
+                                >Fanglan Villa</strong
+                            >, where retired soldiers spend their later years.
+                            Hearing their memories—shaped by history,
+                            resilience, and sacrifice—is both <strong
+                                >humbling and moving</strong
+                            >.
+                        </p>
+
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            These moments remind me that <strong
+                                >compassion is not abstract</strong
+                            >. It lives in quiet conversations, shared laughter,
+                            and the simple act of showing up. Behind every
+                            effort to help is a human life deserving
+                            <strong>dignity, care, and connection</strong>.
                         </p>
                     </div>
                 </article>
@@ -341,4 +447,108 @@ import homeCare from "../assets/images/home_care.jpg";
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
         background: #94a3b8;
     }
+    .volunteer-indicator {
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+    }
 </style>
+
+<script>
+    function initVolunteerCarousel() {
+        const carousel = document.getElementById("volunteer-carousel");
+        if (!carousel) return;
+
+        const track = document.getElementById("volunteer-track");
+        const prevBtn = carousel.querySelector(".volunteer-prev");
+        const nextBtn = carousel.querySelector(".volunteer-next");
+
+        // 加上這行：確保這些元素都存在，TypeScript 就不會報錯了
+        if (!track || !prevBtn || !nextBtn) return;
+
+        const indicators = carousel.querySelectorAll(".volunteer-indicator");
+        const slides = track.children;
+
+        let currentIndex = 0;
+        let startX = 0;
+        let isDragging = false;
+
+        // 更新 UI 狀態
+        const updateCarousel = () => {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            indicators.forEach((ind, i) => {
+                if (i === currentIndex) {
+                    ind.classList.replace("bg-white/50", "bg-cyan-400");
+                } else {
+                    ind.classList.replace("bg-cyan-400", "bg-white/50");
+                }
+            });
+        };
+
+        // 1. 左右箭頭點擊
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        });
+
+        // 2. 指示點點擊
+        indicators.forEach((ind, i) => {
+            ind.addEventListener("click", (e) => {
+                e.stopPropagation();
+                currentIndex = i;
+                updateCarousel();
+            });
+        });
+
+        // 3. Pointer Events 滑動/拖拽
+        carousel.addEventListener("pointerdown", (e) => {
+            // 【關鍵修改】如果點擊的目標是 button (包含裡面的 icon) 就不觸發拖拽，讓 click 事件正常執行
+            const target = e.target as HTMLElement;
+
+            if (target && target.closest("button")) {
+                return;
+            }
+
+            isDragging = true;
+            startX = e.clientX;
+            if (carousel.setPointerCapture) {
+                carousel.setPointerCapture(e.pointerId); // 確保鎖定事件
+            }
+        });
+
+        carousel.addEventListener("pointerup", (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            carousel.releasePointerCapture(e.pointerId);
+
+            const endX = e.clientX;
+            const diffX = startX - endX;
+
+            // 位移大於 50px 才觸發翻頁
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    currentIndex = (currentIndex + 1) % slides.length; // 向左滑 -> 下一張
+                } else {
+                    currentIndex =
+                        (currentIndex - 1 + slides.length) % slides.length; // 向右滑 -> 上一張
+                }
+                updateCarousel();
+            }
+        });
+        carousel.addEventListener("pointercancel", () => {
+            isDragging = false;
+        });
+    }
+
+    // 確保頁面載入時執行
+    initVolunteerCarousel();
+
+    // 如果你有使用 Astro View Transitions，請解開下面這行的註解
+    // document.addEventListener("astro:page-load", initVolunteerCarousel);
+</script>
