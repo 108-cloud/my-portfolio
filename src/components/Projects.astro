@@ -1,11 +1,11 @@
 ---
-import { Image } from 'astro:assets';
-import tjccInitial from '../assets/images/TJCC_initial.jpg';
-import tjccFinal from '../assets/images/TJCC_final.jpg';
-import tjccAward from '../assets/images/TJCC_award.jpg';
-import circleHtMap from '../assets/images/circle_ht_map.png';
-import cellchatChord from '../assets/images/cellchat_chord_ECM.png';
-import mtIntern from '../assets/images/MT_intern.jpg';
+import { Image } from "astro:assets";
+import tjccInitial from "../assets/images/TJCC_initial.jpg";
+import tjccFinal from "../assets/images/TJCC_final.jpg";
+import tjccAward from "../assets/images/TJCC_award.jpg";
+import circleHtMap from "../assets/images/circle_ht_map.png";
+import cellchatChord from "../assets/images/cellchat_chord_ECM.png";
+import mtIntern from "../assets/images/MT_intern.jpg";
 ---
 
 <!-- PROJECTS SECTION -->
@@ -87,7 +87,7 @@ import mtIntern from '../assets/images/MT_intern.jpg';
 
             <!-- Image Area (Custom Carousel) -->
             <project-carousel
-                class="md:w-1/2 h-80 md:h-auto relative block overflow-hidden bg-gray-100 border-r border-gray-100"
+                class="md:w-1/2 h-80 md:h-auto relative block overflow-hidden bg-gray-100 border-r border-gray-100 touch-pan-y select-none cursor-grab active:cursor-grabbing"
             >
                 <!-- Carousel Track -->
                 <div
@@ -139,9 +139,10 @@ import mtIntern from '../assets/images/MT_intern.jpg';
                     </div>
                 </div>
 
-                <!-- Navigation Controls (Visible on hover) -->
+                <!-- Navigation Controls (Visible on hover on desktop, hidden on mobile) -->
+                <!-- 更新: 加入 hidden md:flex，只有在 md 以上尺寸才顯示箭頭 -->
                 <button
-                    class="prev-btn absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-white/80 hover:bg-white text-gray-800 rounded-full shadow-md z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 focus:outline-none"
+                    class="prev-btn hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center bg-white/80 hover:bg-white text-gray-800 rounded-full shadow-md z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 focus:outline-none"
                     aria-label="Previous image"
                 >
                     <svg
@@ -157,7 +158,7 @@ import mtIntern from '../assets/images/MT_intern.jpg';
                     >
                 </button>
                 <button
-                    class="next-btn absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-white/80 hover:bg-white text-gray-800 rounded-full shadow-md z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 focus:outline-none"
+                    class="next-btn hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center bg-white/80 hover:bg-white text-gray-800 rounded-full shadow-md z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 focus:outline-none"
                     aria-label="Next image"
                 >
                     <svg
@@ -174,8 +175,9 @@ import mtIntern from '../assets/images/MT_intern.jpg';
                 </button>
 
                 <!-- Indicators -->
+                <!-- 更新: 手機版預設 opacity-100，電腦版(md)預設 opacity-0，且 Hover 時 group-hover:opacity-100 -->
                 <div
-                    class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10"
+                    class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10 transition-opacity duration-300 opacity-100 md:opacity-0 group-hover:opacity-100"
                 >
                     <button
                         class="indicator w-2 h-2 rounded-full bg-white shadow-sm focus:outline-none transition-colors duration-300"
@@ -196,7 +198,7 @@ import mtIntern from '../assets/images/MT_intern.jpg';
             data-aos="fade-up"
             data-aos-delay="200"
         >
-            <!-- Text Area -->
+            <!-- 保持原樣... -->
             <div
                 class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center border-l-8 border-transparent group-hover:border-accent transition-colors duration-300"
             >
@@ -231,11 +233,9 @@ import mtIntern from '../assets/images/MT_intern.jpg';
                 </div>
             </div>
 
-            <!-- Image Area -->
             <div
                 class="md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-white border-l border-gray-100"
             >
-                <!-- Using object-contain to prevent cropping of scientific labels and legends -->
                 <Image
                     src={circleHtMap}
                     alt="Circular Heatmap of Downregulated Invasive Genes"
@@ -250,7 +250,7 @@ import mtIntern from '../assets/images/MT_intern.jpg';
             data-aos="fade-up"
             data-aos-delay="300"
         >
-            <!-- Text Area -->
+            <!-- 保持原樣... -->
             <div
                 class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center border-r-8 border-transparent group-hover:border-accent transition-colors duration-300"
             >
@@ -286,11 +286,9 @@ import mtIntern from '../assets/images/MT_intern.jpg';
                 </div>
             </div>
 
-            <!-- Image Area -->
             <div
                 class="md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-white border-r border-gray-100"
             >
-                <!-- Using object-contain to prevent cropping of scientific labels and legends -->
                 <Image
                     src={cellchatChord}
                     alt="CellChat Chord Diagram of ECM-integrin signaling"
@@ -305,7 +303,7 @@ import mtIntern from '../assets/images/MT_intern.jpg';
             data-aos="fade-up"
             data-aos-delay="400"
         >
-            <!-- Text Area -->
+            <!-- 保持原樣... -->
             <div
                 class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center border-l-8 border-transparent group-hover:border-accent transition-colors duration-300"
             >
@@ -340,7 +338,6 @@ import mtIntern from '../assets/images/MT_intern.jpg';
                     >
                 </div>
 
-                <!-- Added to Project 4: Clinical/Volunteer Experience -->
                 <div class="mt-6">
                     <a
                         href="/impact-story#clinical-humanistic"
@@ -352,7 +349,6 @@ import mtIntern from '../assets/images/MT_intern.jpg';
                 </div>
             </div>
 
-            <!-- Image Area -->
             <div
                 class="md:w-1/2 h-80 md:h-auto relative overflow-hidden bg-gray-200"
             >
@@ -361,7 +357,6 @@ import mtIntern from '../assets/images/MT_intern.jpg';
                     alt="Ting-Wei Hu - Clinical Laboratory Internship"
                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
-                <!-- Subtle Overlay -->
                 <div
                     class="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-300"
                 >
@@ -375,7 +370,6 @@ import mtIntern from '../assets/images/MT_intern.jpg';
 <script>
     class ProjectCarousel extends HTMLElement {
         connectedCallback() {
-            // 使用類型斷言 (Type Assertion) 告訴 TS 這些是 HTMLElement
             const track = this.querySelector(
                 ".carousel-track",
             ) as HTMLElement | null;
@@ -387,18 +381,17 @@ import mtIntern from '../assets/images/MT_intern.jpg';
             ) as HTMLElement | null;
             const indicators = this.querySelectorAll(".indicator");
 
-            // 1. 安全檢查：如果找不到必要元件，直接返回不執行，避免報錯
-            if (!track || !nextBtn || !prevBtn) return;
+            // 安全檢查：只有在找不到 track 的時候才 return
+            if (!track) return;
 
             const slides = track.children;
             let currentIndex = 0;
 
             const updateCarousel = () => {
-                // 2. 這裡 track 已經確定不是 null 了
                 track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
                 indicators.forEach((ind, i) => {
-                    const indicator = ind as HTMLElement; // 轉型以存取 classList
+                    const indicator = ind as HTMLElement;
                     if (i === currentIndex) {
                         indicator.classList.remove("bg-white/50");
                         indicator.classList.add("bg-white");
@@ -409,26 +402,79 @@ import mtIntern from '../assets/images/MT_intern.jpg';
                 });
             };
 
-            // 3. 事件監聽
-            nextBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateCarousel();
-            });
+            // 針對電腦版箭頭的點擊事件 (確保箭頭存在才綁定)
+            if (nextBtn && prevBtn) {
+                nextBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateCarousel();
+                });
 
-            prevBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                currentIndex =
-                    (currentIndex - 1 + slides.length) % slides.length;
-                updateCarousel();
-            });
+                prevBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    currentIndex =
+                        (currentIndex - 1 + slides.length) % slides.length;
+                    updateCarousel();
+                });
+            }
 
+            // 針對小點 (Indicators) 的點擊事件
             indicators.forEach((ind, i) => {
                 ind.addEventListener("click", (e) => {
                     e.preventDefault();
                     currentIndex = i;
                     updateCarousel();
                 });
+            });
+
+            // ============================================
+            // 新增功能：處理手機版左右滑動 (Swipe), 更新 Pointer Events (相容滑鼠拖拽與手機滑動)
+            // ============================================
+            let startX = 0;
+            let endX = 0;
+            let isDragging = false;
+
+            // 防止圖片被瀏覽器預設的拖拽行為干擾
+            track.querySelectorAll("img").forEach((img) => {
+                img.draggable = false;
+            });
+
+            track.addEventListener("pointerdown", (e: PointerEvent) => {
+                // 只有左鍵點擊或觸碰時觸發
+                if (e.button !== 0 && e.pointerType === "mouse") return;
+
+                startX = e.clientX;
+                isDragging = true;
+                endX = startX; // 重置 endX
+
+                // 避免拖動時觸發瀏覽器預設行為
+                track.setPointerCapture(e.pointerId);
+            });
+
+            track.addEventListener("pointermove", (e: PointerEvent) => {
+                if (!isDragging) return;
+                endX = e.clientX;
+            });
+
+            track.addEventListener("pointerup", (e: PointerEvent) => {
+                if (!isDragging) return;
+                isDragging = false;
+                track.releasePointerCapture(e.pointerId);
+
+                const diffX = startX - endX;
+
+                // 設定滑動最小位移量 50px
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        // 向左滑 (看下一張)
+                        currentIndex = (currentIndex + 1) % slides.length;
+                    } else {
+                        // 向右滑 (看上一張)
+                        currentIndex =
+                            (currentIndex - 1 + slides.length) % slides.length;
+                    }
+                    updateCarousel();
+                }
             });
         }
     }
